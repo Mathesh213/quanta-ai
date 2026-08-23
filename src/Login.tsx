@@ -98,14 +98,19 @@ export function Component({ onLogin }: LoginProps) {
     };
 
     return (
-        <div className="min-h-screen w-full relative overflow-hidden flex items-center">
+        <div className="min-h-screen w-full relative overflow-hidden flex items-center justify-center lg:justify-start px-4 sm:px-6 lg:px-0 py-6 lg:py-0">
 
             {/* Right side AI Knowledge Assistant image */}
             <motion.div
                 initial={{ opacity: 0, x: 60 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="absolute right-[16%] top-1/2 -translate-y-1/2 w-[52%] z-0 flex items-center justify-center"
+                className="
+    hidden lg:flex
+    absolute right-[16%] top-1/2 -translate-y-1/2
+    w-[52%] z-0
+    items-center justify-center
+"
             >
                 <img
                     src="/knowledge-ai.png"
@@ -119,7 +124,12 @@ export function Component({ onLogin }: LoginProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="w-full max-w-xl relative z-10 ml-[8%] my-10"
+                className="
+    w-full max-w-md sm:max-w-xl
+    relative z-10
+    mx-auto lg:ml-[8%] lg:mr-0
+    my-0 lg:my-10
+"
                 style={{ perspective: 1500 }}
             >
                 <motion.div
@@ -256,7 +266,18 @@ export function Component({ onLogin }: LoginProps) {
                         </div>
 
                         {/* Main card */}
-                        <div className="relative min-h-[560px] flex flex-col justify-center bg-black/40 backdrop-blur-xl rounded-2xl px-10 py-12 border border-white/[0.05] shadow-2xl overflow-hidden">
+                        <div className="
+    relative
+    min-h-[520px] sm:min-h-[560px]
+    flex flex-col justify-center
+    bg-black/40 backdrop-blur-xl
+    rounded-2xl
+    px-5 sm:px-8 lg:px-10
+    py-8 sm:py-10 lg:py-12
+    border border-white/[0.05]
+    shadow-2xl
+    overflow-hidden
+">
 
                             {/* Inner pattern */}
                             <div
@@ -269,9 +290,9 @@ export function Component({ onLogin }: LoginProps) {
                             />
 
                             {/* Header */}
-                            <div className="relative text-center space-y-2 mb-7 -mt-20">
+                            <div className="relative text-center space-y-2 mb-7 -mt-6 sm:-mt-12 lg:-mt-20">
 
-                                <div className="overflow-hidden -mt-8 mb-8">
+                                <div className="overflow-hidden -mt-2 sm:-mt-5 lg:-mt-8 mb-6 sm:mb-8">
                                     <motion.h2
                                         initial={{
                                             opacity: 0,
@@ -299,7 +320,7 @@ export function Component({ onLogin }: LoginProps) {
                                                 ease: "linear",
                                             },
                                         }}
-                                        className="text-3xl font-bold tracking-[0.15em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-white via-emerald-300 to-emerald-400 bg-[length:200%_auto]"
+                                        className="text-2xl sm:text-3xl font-bold tracking-[0.12em] sm:tracking-[0.15em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-white via-emerald-300 to-emerald-400 bg-[length:200%_auto]"
                                     >
                                         Quanta AI
                                     </motion.h2>
