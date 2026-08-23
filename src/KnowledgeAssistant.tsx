@@ -8,6 +8,11 @@ import * as XLSX from "xlsx";
 import JSZip from "jszip";
 
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+console.log("Gemini API key exists:", !!apiKey);
+
+if (!apiKey) {
+    console.error("VITE_GEMINI_API_KEY is missing!");
+}
 
 const genAI = new GoogleGenerativeAI(apiKey);
 
@@ -302,14 +307,20 @@ ${userQuestion}
                         : chat
                 )
             );
-        } catch (error) {
-            console.error("Gemini error:", error);
+        } catch (error: any) {
+            console.error("FULL GEMINI ERROR:", error);
+
+            const actualError =
+                error?.message ||
+                error?.error?.message ||
+                JSON.stringify(error);
+
+            console.error("ERROR MESSAGE:", actualError);
 
             const errorMessage: Message = {
                 id: Date.now() + 2,
                 role: "assistant",
-                content:
-                    "Sorry, there was an error while generating the answer. Please try again.",
+                content: `Error: ${actualError}`,
             };
 
             setMessages((prev) => [...prev, errorMessage]);
