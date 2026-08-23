@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Custom scrollbar for Quantum Knowledge AI */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #06110d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #146c4e;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #23845f;
+}
