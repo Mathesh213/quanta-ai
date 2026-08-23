@@ -26,17 +26,11 @@ cd YOUR-REPOSITORY
 npm install
 npm run dev
 ```
-
 ## 🔑 Demo Login
 Email: quantumcoders@gmail.com
 Password: 1234
 
 ## 👨‍💻 Team
 **Quantum Coders**
-
-📧 quantumcoders@gmail.com
-
-## 🔗 Links
-🌐 Live Website: https://quanta-ai-beta.vercel.app/
 
 ⭐ Star the repository if you like the project!
