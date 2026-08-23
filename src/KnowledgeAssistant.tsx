@@ -317,10 +317,41 @@ ${userQuestion}
 
             console.error("ERROR MESSAGE:", actualError);
 
+            let displayMessage = "";
+
+            // Gemini quota exhausted / rate limit
+            // Gemini quota exhausted / rate limit
+            if (
+                actualError.includes("429") ||
+                actualError.toLowerCase().includes("quota") ||
+                actualError.includes("RESOURCE_EXHAUSTED")
+            ) {
+                displayMessage =
+                    "⚠️ AI daily request limit reached.\n\n" +
+                    "The Gemini API quota has been exhausted.\n" +
+                    "Please try again after some time.";
+            }
+
+            // Model unavailable
+            else if (
+                actualError.includes("404") ||
+                actualError.toLowerCase().includes("not found") ||
+                actualError.toLowerCase().includes("no longer available")
+            ) {
+                displayMessage =
+                    "⚠️ The AI model is currently unavailable. Please try again later.";
+            }
+
+            // Other errors
+            else {
+                displayMessage =
+                    "⚠️ Something went wrong while generating the answer. Please try again.";
+            }
+
             const errorMessage: Message = {
                 id: Date.now() + 2,
                 role: "assistant",
-                content: `Error: ${actualError}`,
+                content: displayMessage,
             };
 
             setMessages((prev) => [...prev, errorMessage]);
